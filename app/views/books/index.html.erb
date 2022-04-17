@@ -1,5 +1,13 @@
+<h2>Books</h2>
+
 <% @books.each do |book| %>
 <div>
-  <%= image_tag book.get_image %>
-  
+  <%= link_to book_path(book.id) do %>
+    <%= image_tag book.get_image %>
+  <% end %>
+  <p>Title</p>
+    <%= book.title %>
+  <p>Opinion</p>
+    <%= book.body %>
 </div>
+ <% end %>
