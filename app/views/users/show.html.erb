@@ -5,18 +5,41 @@
 <%= render 'books/list', book: @book %>
 
 
+<div class="col-md-8 offset-md-1">
+  <h2>Books</h2>
+  <table class="table table-hover table-inverse">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Opinion</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
 
-<h2>Books</h2>
+      <tr>
+        <td>
+          <% @books.each do |book| %>
+        </td>
+        <td>
+          <%= link_to book_path(book.id) do %>
+            <%= image_tag book.get_image %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to book.title, book_path(book.id) %>
+        </td>
+        <td>
+          <%= book.body %>
 
-<!-- ユーザーの投稿一覧 -->
-<% @books.each do |book| %>
-<div>
-  <%= link_to book_path(book.id) do %>
-    <%= image_tag book.get_image %>
-  <% end %>
-  <p>Title</p>
-  <%= link_to book.title, book_path(book.id) %>
-  <p>Opinion</p>
-  <%= book.body %>
+        </td>
+
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-<% end %>
+</div>
+</div>
+</main>

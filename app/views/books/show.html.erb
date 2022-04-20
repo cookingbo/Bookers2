@@ -3,16 +3,39 @@
 <%= render 'users/list', user: @user %>
 <%= render 'list', book: @book %>
 
-<h2>Book detail</h2>
+<div class="col-md-8 offset-md-1">
+  <h2>Book detail</h2>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <%= link_to user_path(@user.id) do %>
+            <%= image_tag @books.get_image %><br>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to @user.name, user_path(@user.id) %>
+        </td>
+        <td>
+          <%= link_to @books.title, book_path %>
+        </td>
+        <td>
+          <%= @books.body %>
+        </td>
 
-<div>
-  <%= image_tag @books.get_image %><br>
-  <%= link_to @user.name, user_path(@user.id) %>
-
-  <%= link_to @books.title, book_path %>
-  <%= @books.body %>
-  <% if @books.user == current_user %>
-    <%= link_to "Edit", edit_book_path(@books) %>
-    <%= link_to "Destroy", book_path(@books), method: :delete %>
-  <% end %>
+        <% if @books.user == current_user %>
+        <td>
+          <%= link_to "Edit", edit_book_path(@books) %>
+        </td>
+        <td>
+          <%= link_to "Destroy", book_path(@books), method: :delete %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
+</div>
+</div>
+</main>
+
