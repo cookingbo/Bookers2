@@ -1,59 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html class="fontawesome-i2svg-active fontawesome-i2svg-complete">
   <head>
-    <title>Bookers2</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <style type="text/css">
+      .turbolinks-progress-bar {
+        position: fixed;
+        display: block;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: #0076ff;
+        z-index: 9999;
+        transition: width 300ms ease-out, opacity 150ms 150ms ease-in;
+        transform: translated3d(0, 0, 0);
+      }
+    </style>
+    <link rel="stylesheet" media="all" href="/packs/css/application-859f38f5.css" data-turbolinks-track="reload">
+    <script src="/packs/js/application-8c498bd08fe3c47f4c35.js" data-turbolinks-track="reload"></script>
+
+    <title>Bookers2Ver2</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body data-gr-ext-disabled="forever">
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <%= link_to "Bookers", '/', class: 'nav-link text-light' %>
+          <%= link_to '/', class: 'navbar-brand' do %>
+            <span>Bookers</span>
+          <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="navbar-collapse collapse show" id="navbarNavDropdown" style>
+          <div class="navbar-collapse collapse" id="navbarNavDropdown" style>
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
               <li>
-                <i class="fas fa-home"></i>
-                <%= link_to "Home", user_path(current_user.id), class: 'nav-link text-light' %>
+                <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
+                  <i class="fas fa-home"></i>
+                  Home
+                <% end %>
               </li>
               <li>
-                <i class="fas fa-users"></i>
-                <%= link_to "Users", users_path, class: 'nav-link text-light' %>
+                <%= link_to users_path, class: 'nav-link text-light' do %>
+                  <i class="fas fa-users"></i>
+                  Users
+                <% end %>
               </li>
               <li>
-                <i class="fas fa-book-open"></i>
-                <%= link_to "Books", books_path, class: 'nav-link text-light' %>
+                <%= link_to books_path, class: 'nav-link text-light' do %>
+                  <i class="fas fa-book-open"></i>
+                  Books
+                <% end %>
               </li>
               <li>
-                <i class="fas fa-sign-out-alt"></i>
-                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
+                <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
+                  <i class="fas fa-sign-out-alt"></i>
+                  Log out
+                <% end %>
               </li>
               <% else %>
               <li>
-                <i class="fas fa-home"></i>
-                <%= link_to "Home", '/', class: 'nav-link text-light' %>
+                <%= link_to '', class: 'nav-link text-light' do %>
+                  <i class="fas fa-home"></i>
+                  Home
+                <% end %>
               </li>
               <li>
-                <i class="fas fa-link"></i>
-                <%= link_to "About", about_path, class: 'nav-link text-light' %>
+                <%= link_to about_path, class: 'nav-link text-light' do %>
+                  <i class="fas fa-link"></i>
+                  About
+                <% end %>
               </li>
               <li>
-                <i class="fas fa-user-plus"></i>
-                <%= link_to "Sing Up",new_user_registration_path, class: 'nav-link text-light' %>
+                <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
+                  <i class="fas fa-user-plus"></i>
+                  Sign up
+                <% end %>
               </li>
               <li>
-                <i class="fas fa-sign-in-alt"></i>
-                <%= link_to "Log in", new_user_session_path, class: 'nav-link text-light' %>
+                <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
+                  <i class="fas fa-sign-in-alt"></i>
+                  Log in
+                <% end %>
               </li>
               <% end %>
             </ul>
@@ -61,7 +96,6 @@
         </div>
       </nav>
     </header>
-
     <%= yield %>
     <footer>
       <div class="container mt-5">
@@ -72,6 +106,5 @@
         </div>
       </div>
     </footer>
-
   </body>
 </html>

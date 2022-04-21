@@ -1,9 +1,5 @@
 
-<main>
-<p id="notice"></p>
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
+
       <h2>User info</h2>
       <%= image_tag user.get_profile_image(100,100) %>
       <table class="table">
@@ -20,5 +16,8 @@
         </tbody>
       </table>
       <div class="row">
-        <%= link_to "プロフィール編集", edit_user_path(user) %>
+        <%= link_to edit_user_path(user), class: 'btn btn-outline-secondary btn-block' do %>
+          <i class="fas fa-user-cog"></i>
+        <% end %>
       </div>
+  
